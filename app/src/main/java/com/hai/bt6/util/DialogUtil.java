@@ -15,7 +15,7 @@ import com.hai.bt6.model.Contact;
  */
 
 public class DialogUtil {
-    public static void showDialogAdd(Activity activity, final DialogClick dialogClick){
+    public static void showDialogAdd(Activity activity, final DialogClick dialogClick) {
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.dialog_add);
         dialog.setTitle(activity.getString(R.string.add));
@@ -26,7 +26,7 @@ public class DialogUtil {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogClick.positiveClick(edtName.getText().toString(),edtNumber.getText().toString());
+                dialogClick.positiveClick(edtName.getText().toString(), edtNumber.getText().toString());
                 dialog.dismiss();
             }
         });
@@ -38,7 +38,8 @@ public class DialogUtil {
         });
         dialog.show();
     }
-    public static void showDialogEdit(Activity activity, Contact contact, final DialogClick dialogClick){
+
+    public static void showDialogEdit(Activity activity, Contact contact, final DialogClick dialogClick) {
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.dialog_edit);
         dialog.setTitle(activity.getString(R.string.edit));
@@ -51,7 +52,7 @@ public class DialogUtil {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogClick.positiveClick(edtName.getText().toString(),edtNumber.getText().toString());
+                dialogClick.positiveClick(edtName.getText().toString(), edtNumber.getText().toString());
                 dialog.dismiss();
             }
         });

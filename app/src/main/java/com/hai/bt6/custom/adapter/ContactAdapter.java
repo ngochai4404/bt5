@@ -18,32 +18,32 @@ import java.util.List;
  * Created by Hai on 15/07/2018.
  */
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactHolder>{
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactHolder> {
     List<Contact> mContacts;
     Context mContext;
-    ItemOnClick onClick;
+    ItemOnClick mOnClick;
 
     public ContactAdapter(List<Contact> mContacts, Context mContext, ItemOnClick onClick) {
         this.mContacts = mContacts;
         this.mContext = mContext;
-        this.onClick = onClick;
+        this.mOnClick = onClick;
     }
 
     @NonNull
     @Override
     public ContactHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.item_contact,viewGroup,false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.item_contact, viewGroup, false);
         return new ContactHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ContactHolder holder, int i) {
-        final int pos = mContacts.size()-i-1;
+        final int pos = mContacts.size() - i - 1;
         final Contact contact = mContacts.get(pos);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onClick.onClick(contact,pos);
+                mOnClick.onClick(contact, pos);
             }
         });
         holder.tvName.setText(contact.getName());
@@ -52,7 +52,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
 
     @Override
     public int getItemCount() {
-        if ( mContacts == null ) {
+        if (mContacts == null) {
             return 0;
         }
         return mContacts.size();
@@ -61,6 +61,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactH
     class ContactHolder extends RecyclerView.ViewHolder {
         TextView tvName;
         TextView tvNumber;
+
         public ContactHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_name);

@@ -5,8 +5,12 @@ package com.hai.bt6.model;
  */
 
 public class Contact {
+    private int id;
     private String name;
     private String number;
+
+    public Contact() {
+    }
 
     public Contact(String name, String number) {
         this.name = name;
@@ -15,6 +19,14 @@ public class Contact {
 
     public String getName() {
         return name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
