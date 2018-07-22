@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements ItemOnClick {
     ContactAdapter mAdapter;
     boolean mGrid = false;
     DatabaseManager mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,15 +55,14 @@ public class MainActivity extends AppCompatActivity implements ItemOnClick {
         DialogUtil.showDialogAdd(this, new DialogClick() {
             @Override
             public void positiveClick(String name, String number) {
-                Contact contact = new Contact(name,number);
-                contact.setId(new ContactTable().insertContact(contact,mDatabase));
+                Contact contact = new Contact(name, number);
+                contact.setId(new ContactTable().insertContact(contact, mDatabase));
                 mContacts.add(contact);
                 mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void inNegativeClick() {
-
             }
         });
     }
@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements ItemOnClick {
             }
             mAdapter.notifyDataSetChanged();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -99,13 +98,13 @@ public class MainActivity extends AppCompatActivity implements ItemOnClick {
             public void positiveClick(String name, String number) {
                 contact.setName(name);
                 contact.setNumber(number);
-                new ContactTable().updateNote(contact,mDatabase);
+                new ContactTable().updateNote(contact, mDatabase);
                 mAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void inNegativeClick() {
-                new ContactTable().deleteContact(contact,mDatabase);
+                new ContactTable().deleteContact(contact, mDatabase);
                 mContacts.remove(pos);
                 mAdapter.notifyDataSetChanged();
             }

@@ -17,10 +17,10 @@ public class DatabaseManager extends SQLiteOpenHelper {
     public DatabaseManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         // create notes table
         db.execSQL(ContactTable.CREATE_TABLE);
     }
