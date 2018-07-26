@@ -11,12 +11,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/ll_delete"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        >
+        <Button
+            android:text="@string/cancel"
+            android:onClick="cancelDel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:layout_weight="1"
+            android:onClick="delSelect"
+            android:text="@string/delete"
+            android:textColor="@android:color/holo_red_light"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
     <android.support.design.widget.FloatingActionButton
         android:src="@drawable/ic_add"
+        android:id="@+id/btn_add"
+        android:layout_above="@+id/ll_delete"
+        android:layout_alignParentBottom="true"
         android:onClick="add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="8dp"
         />

@@ -6,4 +6,5 @@ package com.hai.bt6.interfaces;
 
 public interface ItemOnClick {
     void onClick(Object o, int pos);
+    void onLongClick(int pos);
 }
